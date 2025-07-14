@@ -18,7 +18,7 @@ function onAddSubmit(e){
     }
     addItemToDom(newItem);
     addItemToStorage(newItem);
-    itemInput.value='';//YAZDIKTAN SONRA BOŞ BIRAKMAYI SAĞLAR
+    itemInput.value='';
     clear();
 }
 
@@ -38,7 +38,7 @@ function displayItems(){
 function addItemToStorage(item){
     let itemFromStorage=getItemFromStorage();
     
-    itemFromStorage.push(item);//object olarak saklanırlar ama array özelliklerini kullanırlar yani array gibi davranırlar
+    itemFromStorage.push(item);
     localStorage.setItem('items',JSON.stringify(itemFromStorage));
 }
 
@@ -79,7 +79,7 @@ function onClickItem(e){
 function setItemToEdit(item){
     isEditMode=true;
     itemList.querySelectorAll('li').forEach((i)=>i.classList.remove('edit-mode'));
-    item.classList.add('edit-mode');//class ekleme veya kaldırma yapıcaksan classList ile yapman lazım className olmaz.
+    item.classList.add('edit-mode');
     itemBtn.innerHTML='<i class="fa-solid fa-plus"></i>UPDATE ITEM';
     itemBtn.style.backgroundColor='green';
     itemInput.value=item.textContent;
@@ -95,7 +95,7 @@ function removeItem(item){
     }
 function removeLocal(item){
     let itemFromStorage=getItemFromStorage();
-    itemFromStorage=itemFromStorage.filter((i)=>i!==item);//filter bütün diziyi dolaşır ama özelliği koşula göre elemanı tutup tutmamaya karar verir
+    itemFromStorage=itemFromStorage.filter((i)=>i!==item);
     localStorage.setItem('items',JSON.stringify(itemFromStorage));
 }
 
@@ -144,11 +144,5 @@ function onFilter(e){
 
 filterClear.addEventListener('input',onFilter);
 
-//5-----------
-/*localStorage.setItem('name','emre');
-console.log(localStorage.getItem('name'));
-localStorage.removeItem('name');
-localStorage.clear();//hepsini siler*/
 
-//6-----------
 
